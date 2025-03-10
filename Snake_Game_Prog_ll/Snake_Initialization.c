@@ -1,4 +1,7 @@
 #include "Snake_Initalization.h"
+#include "main.h"
+
+int snakeLength;
 
 SNAKEBODY createBody(int x, int y) {
 	SNAKEBODY S;
@@ -20,6 +23,8 @@ void addNode(PSNAKENODE* list, SNAKEBODY s) {
 		newNode->next = *list;
 		*list = newNode;
 	}
+
+	snakeLength++; // increase the snakes length
 }
 
 SNAKEBODY copyBody(SNAKEBODY s) {
@@ -45,4 +50,6 @@ void freeSnake(PSNAKENODE head) {
 		head = head->next;  // move head to the next node
 		free(temp);        // free temp
 	}
+
+	snakeLength--;
 }

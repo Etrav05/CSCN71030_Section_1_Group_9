@@ -127,10 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game_Space_Printing.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Snake_Initialization.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game_Space_Printing.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Snake_Initalization.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
