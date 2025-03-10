@@ -1,11 +1,27 @@
-#include <stdio.h>
+#include "Snake_Initalization.h"
 
-typedef struct snakeBody {
-	int x;
-	int y;
-} SNAKEBODY;
+SNAKEBODY createBody(int x, int y) {
+	SNAKEBODY S;
+	S.x = x;
+	S.y = y;
+	return S;
+}
 
-typedef struct snakeNode {
-	SNAKEBODY data;
-	struct snakeNode* next;
-} SNAKENODE, *PSNAKENODE;
+void addNode(PSNAKENODE* list, SNAKEBODY s) {
+	PSNAKENODE newNode = (PSNAKENODE)malloc(sizeof(SNAKENODE));
+
+	if (!newNode) {
+		fprintf(stderr, "Error creating snake node");
+		exit(EXIT_FAILURE);
+	}
+
+	else {
+		newNode->data = copyBody(s);
+		newNode->next = *list;
+		*list = newNode;
+	}
+}
+
+SNAKEBODY copyBody(SNAKEBODY s) {
+	return createBody(s.x, s.y);
+}
