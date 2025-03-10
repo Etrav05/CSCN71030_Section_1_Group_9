@@ -130,6 +130,9 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="Snake_Initialization.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Snake_Initalization.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
