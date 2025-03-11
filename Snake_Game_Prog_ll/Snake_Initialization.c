@@ -48,7 +48,7 @@ void freeSnake(PSNAKENODE head) {
 	while (head != NULL) {    // until all nodes are gone
 		temp = head;	     // temp is head
 		head = head->next;  // move head to the next node
-		free(temp);        // free temp
+		free(temp);        // free the temp
 	}
 
 	snakeLength--;
