@@ -31,36 +31,32 @@ void printGrid(PSNAKENODE head) {
         printf("[]"); // left walls
 
         for (int j = 0; j < WIDTH; j++) {
-            if (j == x && i == y) { // snake head
-                printf("O");
-            }
+            int tailPtr = 0; // flag to check if a tail section was printed
+            int k = 0;
+            PSNAKENODE current = head;
 
-            else {
-                int tailPtr = 0; // flag to check if a tail section was printed
-                PSNAKENODE current = head;
-                int k = 0;
+            while (current != NULL) {
+                if (current->data.x == j && current->data.y == i) {
+                    if (k == 0)
+                        printf("O"); // snake head
 
-                while (current != NULL) {
-                    if (current->data.x == j && current->data.y == i) {
-                        if (k != snakeLength - 1) {
-                            printf("c"); // snake body parts
-                        }
-                        else {
-                            printf("o"); // snake tail
-                        }
-                        tailPtr = 1; // set flag to indicate a tail section was printed
-                        break; // exit the loop once a body part is found
+                    else if (k != snakeLength - 1) {
+                        printf("c"); // snake body parts
                     }
-                    current = current->next;
-                    k++;
+                    else {
+                        printf("o"); // snake tail
+                    }
+                    tailPtr = 1; // set flag to indicate a tail section was printed
+                    break; // exit the loop once a body part is found
                 }
+                current = current->next;
+                k++;
+            }
 
                 if (!tailPtr) { // if nothing else was printed, print a blank space
                     printf(" ");
                 }
             }
-        }
-
         printf("[]\n"); // right walls
     }
 
