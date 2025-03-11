@@ -128,13 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game_Space_Printing.c" />
+    <ClCompile Include="Input_Acceptance.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Snake_Initialization.c" />
+    <ClCompile Include="Snake_Movement.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game_Space_Printing.h" />
-    <ClInclude Include="Main.h" />
+    <ClInclude Include="Input_Acceptance.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Snake_Initalization.h" />
+    <ClInclude Include="Snake_Movement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

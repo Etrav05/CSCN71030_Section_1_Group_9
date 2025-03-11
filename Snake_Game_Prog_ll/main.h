@@ -6,4 +6,6 @@
 extern int x;
 extern int y;
 
+extern int key, gameOver;
+
 extern int snakeLength;

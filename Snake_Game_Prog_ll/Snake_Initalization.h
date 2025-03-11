@@ -1,6 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct snakeBody {
 	int x;
@@ -21,3 +22,5 @@ SNAKEBODY copyBody(SNAKEBODY s);
 PSNAKENODE initialSize(int startX, int startY, int length);
 
 void freeSnake(PSNAKENODE head);
+
+void RemoveTail(PSNAKENODE* list);

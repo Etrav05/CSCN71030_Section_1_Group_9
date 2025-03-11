@@ -1,6 +1,8 @@
 #include "Snake_Initalization.h"
 #include "Game_Space_Printing.h"
-#include "Main.h"
+#include "Input_Acceptance.h"
+#include "Snake_Movement.h"
+#include "main.h"
 
 // Evan T
 // Yash B
@@ -8,6 +10,8 @@
 // Austin F
 
 int x, y;
+
+int key = 0;
 
 // Dont change this often
 int main() {
@@ -18,7 +22,12 @@ int main() {
     x = startX; // set the head position (x, y)
     y = startY;
 
-    printGrid(head); // print the grid
+    while (1) {
+        input();        // accept input
+        printGrid(head); // print the grid
+        movementLogic(&head, key);
+        Sleep(100);
+    }
 
     freeSnake(head); // free the snake linked list
 	return 0;
