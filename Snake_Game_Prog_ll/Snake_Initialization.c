@@ -55,15 +55,15 @@ void freeSnake(PSNAKENODE head) {
 }
 
 void RemoveTail(PSNAKENODE* list) { // remove tails as the snake move
-	if (*list == NULL) { // if the list is empty, there's nothing to remove
+	if (*list == NULL) {           // if the list is empty, there's nothing to remove
 		return;
 	}
 
-	PSNAKENODE current = *list; // traverse to the second-to-last node
-	while (current->next->next != NULL) {
-		current = current->next; // now, current is the second-to-last node
+	PSNAKENODE current = *list;            // traverse to the second-to-last node
+	while (current->next->next != NULL) { // if the current nodes next nodes next pointer (lots of nexts) is pointing to NULL that means its the tail
+		current = current->next;         // now, current is the second-to-last node
 	}
 
-	free(current->next); // free the last node (tail)
+	free(current->next);   // free the last node (tail)
 	current->next = NULL; // set the next pointer of the new tail to NULL
 }
