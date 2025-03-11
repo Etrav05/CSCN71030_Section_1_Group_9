@@ -1,5 +1,5 @@
 #include "Game_Space_Printing.h"
-#include "main.h"
+#include "Main.h"
 
 int snakeLength = 0;
 

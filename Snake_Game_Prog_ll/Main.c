@@ -1,6 +1,6 @@
 #include "Snake_Initalization.h"
 #include "Game_Space_Printing.h"
-#include "main.h"
+#include "Main.h"
 
 // Evan T
 // Yash B

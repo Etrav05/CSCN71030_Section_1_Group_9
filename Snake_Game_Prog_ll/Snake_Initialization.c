@@ -1,5 +1,5 @@
 #include "Snake_Initalization.h"
-#include "main.h"
+#include "Main.h"
 
 int snakeLength;
 
