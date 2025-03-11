@@ -65,5 +65,5 @@ void RemoveTail(PSNAKENODE* list) { // remove tails as the snake move
 	}
 
 	free(current->next); // free the last node (tail)
-	current->next = NULL; // Set the next pointer of the new tail to NULL
+	current->next = NULL; // set the next pointer of the new tail to NULL
 }
