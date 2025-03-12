@@ -16,7 +16,7 @@ int x, y;
 int width = 20;
 int height = 10;
 
-int key = 0;
+int key, gameOver = 0;
 
 // Dont change this often
 int main() {
@@ -26,10 +26,11 @@ int main() {
     x = height / 2; // set the head position (x, y)
     y = width / 2;
 
-    while (1) {
+    while (!gameOver) {
         input();        // accept input
         printGrid(head); // print the grid
         movementLogic(&head);
+        collision(&head);
         Sleep(100);
     }
 
