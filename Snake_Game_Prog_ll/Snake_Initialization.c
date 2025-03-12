@@ -3,6 +3,8 @@
 
 int snakeLength;
 
+int height, width;
+
 SNAKEBODY createBody(int x, int y) {
 	SNAKEBODY S;
 	S.x = x;
@@ -31,11 +33,11 @@ SNAKEBODY copyBody(SNAKEBODY s) {
 	return createBody(s.x, s.y);
 }
 
-PSNAKENODE initialSize(int startX, int startY, int length) { // startX and Y will be passed based on the given size of the snake area, however, length with be hard coded
+PSNAKENODE initialSize() { // startX and Y will be passed based on the given size of the snake area, however, length with be hard coded
 	PSNAKENODE head = NULL;
 
-	for (int i = 0; i < length; i++) { 
-		SNAKEBODY body = createBody(startX - i, startY); // creates body parts down vertically (for a given length)
+	for (int i = 0; i < 5; i++) {
+		SNAKEBODY body = createBody(width / 2 - i, height / 2); // creates body parts down vertically (for a given length)
 		addNode(&head, body);
 	}
 
