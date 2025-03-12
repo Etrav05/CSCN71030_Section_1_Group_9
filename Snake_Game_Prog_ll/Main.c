@@ -1,6 +1,7 @@
 #include "Snake_Initalization.h"
 #include "Game_Space_Printing.h"
 #include "Input_Acceptance.h"
+#include "Snake_Collision.h"
 #include "Snake_Movement.h"
 #include "main.h"
 
