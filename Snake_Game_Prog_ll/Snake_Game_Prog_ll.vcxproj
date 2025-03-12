@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Game_Space_Printing.c" />
     <ClCompile Include="Input_Acceptance.c" />
-    <ClCompile Include="Main.c" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="Snake_Initialization.c" />
     <ClCompile Include="Snake_Movement.c" />
   </ItemGroup>
@@ -137,6 +137,7 @@
     <ClInclude Include="Game_Space_Printing.h" />
     <ClInclude Include="Input_Acceptance.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Snake_Collision.h" />
     <ClInclude Include="Snake_Initalization.h" />
     <ClInclude Include="Snake_Movement.h" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 #include "Snake_Movement.h"
 #include "main.h"
 
-void movementLogic(PSNAKENODE* list, int key) {
+void movementLogic(PSNAKENODE* list) {
 	if (*list == NULL) { // if the list is empty, there's nothing to remove
 		return;
 	}

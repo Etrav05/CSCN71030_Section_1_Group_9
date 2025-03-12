@@ -1,5 +1,5 @@
 #include "Game_Space_Printing.h"
-#include "Main.h"
+#include "main.h"
 
 int snakeLength = 0;
 
@@ -21,6 +21,7 @@ void hideCursor() { // another windows made function to hide the cursor while re
 
 void printGrid(PSNAKENODE head) {
     setCursorPosition(0, 0); // set cursor to the top-left corner
+    hideCursor();
 
     for (int i = 0; i < WIDTH / 2 + 2; i++) { // print the top border
         printf("[]");

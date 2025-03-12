@@ -19,7 +19,7 @@ void addNode(PSNAKENODE* list, SNAKEBODY s);
 
 SNAKEBODY copyBody(SNAKEBODY s);
 
-PSNAKENODE initialSize(int startX, int startY, int length);
+PSNAKENODE initialSize();
 
 void freeSnake(PSNAKENODE head);
 
