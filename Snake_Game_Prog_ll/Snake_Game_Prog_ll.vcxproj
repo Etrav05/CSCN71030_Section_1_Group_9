@@ -130,6 +130,7 @@
     <ClCompile Include="Game_Space_Printing.c" />
     <ClCompile Include="Input_Acceptance.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Snake_Collision.c" />
     <ClCompile Include="Snake_Initialization.c" />
     <ClCompile Include="Snake_Movement.c" />
   </ItemGroup>

@@ -28,14 +28,16 @@ void movementLogic(PSNAKENODE* list) {
 		break;
 	}
 
-	PSNAKENODE next = current->next;  // move the body parts with the head
-	while (next != NULL) {           // while youre not at the tail
-		int tempX = next->data.x;   // save the position of the next body part
-		int tempY = next->data.y;  
-		next->data.x = prevX;     // set the next body part location to the current body part 
-		next->data.y = prevY;
-		prevX = tempX;          // the next body parts location is now the "prev" for the next loop
-		prevY = tempY;
-		next = next->next;    // set next to the next node to continue
+	if (key != 0) {
+		PSNAKENODE next = current->next;  // move the body parts with the head
+		while (next != NULL) {           // while youre not at the tail
+			int tempX = next->data.x;   // save the position of the next body part
+			int tempY = next->data.y;
+			next->data.x = prevX;     // set the next body part location to the current body part 
+			next->data.y = prevY;
+			prevX = tempX;          // the next body parts location is now the "prev" for the next loop
+			prevY = tempY;
+			next = next->next;    // set next to the next node to continue
+		}
 	}
 }
