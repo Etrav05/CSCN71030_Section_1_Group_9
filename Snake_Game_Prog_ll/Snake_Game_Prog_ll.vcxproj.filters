@@ -21,5 +21,31 @@
     <ClCompile Include="Snake_Initialization.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game_Space_Printing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake_Movement.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input_Acceptance.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Snake_Initalization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Space_Printing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake_Movement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input_Acceptance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
