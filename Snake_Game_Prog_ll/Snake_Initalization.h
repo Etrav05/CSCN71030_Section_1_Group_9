@@ -22,5 +22,3 @@ SNAKEBODY copyBody(SNAKEBODY s);
 PSNAKENODE initialSize();
 
 void freeSnake(PSNAKENODE head);
-
-void RemoveTail(PSNAKENODE* list);

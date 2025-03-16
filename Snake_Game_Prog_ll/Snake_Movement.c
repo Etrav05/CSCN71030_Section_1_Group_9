@@ -13,12 +13,14 @@ void movementLogic(PSNAKENODE* list) {
 
 	switch (key) { // snake head movement 
 	case 1:  // w - up
+		Sleep(50);
 		current->data.y--;
 		break;
 	case 2:  // a - left
 		current->data.x--;
 		break;
 	case 3:  // s - down
+		Sleep(50);
 		current->data.y++;
 		break;
 	case 4:  // d - right
