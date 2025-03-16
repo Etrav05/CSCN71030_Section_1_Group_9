@@ -5,6 +5,9 @@
 #define WIDTH		20
 #define HEIGHT		10
 
+extern int appleX, appleY;
+
+
 void setCursorPosition(int x, int y);
 
 void hideCursor();
