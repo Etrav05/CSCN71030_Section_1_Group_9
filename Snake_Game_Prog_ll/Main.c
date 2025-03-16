@@ -4,6 +4,8 @@
 #include "Snake_Collision.h"
 #include "Snake_Movement.h"
 #include "main.h"
+#include "Apple_Placement.h"
+
 
 // Evan T
 // Yash B
@@ -21,10 +23,13 @@ int key, gameOver = 0;
 // Dont change this often
 int main() {
     
+
     PSNAKENODE head = initialSize();
 
     x = height / 2; // set the head position (x, y)
     y = width / 2;
+
+    placeApple(head); // Place the first apple on the grid
 
     while (!gameOver) {
         input();        // accept input

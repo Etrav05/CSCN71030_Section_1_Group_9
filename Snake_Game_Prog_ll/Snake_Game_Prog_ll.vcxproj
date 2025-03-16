@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Apple_Placement.c" />
     <ClCompile Include="Game_Space_Printing.c" />
     <ClCompile Include="Input_Acceptance.c" />
     <ClCompile Include="main.c" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Snake_Movement.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Apple_Placement.h" />
     <ClInclude Include="Game_Space_Printing.h" />
     <ClInclude Include="Input_Acceptance.h" />
     <ClInclude Include="main.h" />

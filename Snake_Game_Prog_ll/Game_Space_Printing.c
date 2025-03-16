@@ -20,48 +20,51 @@ void hideCursor() { // another windows made function to hide the cursor while re
 }
 
 void printGrid(PSNAKENODE head) {
-    setCursorPosition(0, 0); // set cursor to the top-left corner
+    setCursorPosition(0, 0); // Set cursor to the top-left corner
     hideCursor();
 
-    for (int i = 0; i < WIDTH / 2 + 2; i++) { // print the top border
+    for (int i = 0; i < WIDTH / 2 + 2; i++) { // Print top border
         printf("[]");
     }
     printf("\n");
 
-    for (int i = 0; i < HEIGHT; i++) { // print elements of the grid
-        printf("[]"); // left walls
+    for (int i = 0; i < HEIGHT; i++) { // Print elements of the grid
+        printf("[]"); // Left wall
 
         for (int j = 0; j < WIDTH; j++) {
-            int tailPtr = 0; // flag to check if a tail section was printed
+            int tailPtr = 0; // Flag to check if a tail section was printed
             int k = 0;
             PSNAKENODE current = head;
 
             while (current != NULL) {
                 if (current->data.x == j && current->data.y == i) {
                     if (k == 0)
-                        printf("O"); // snake head
-
-                    else if (k != snakeLength - 1) {
-                        printf("c"); // snake body parts
-                    }
-                    else {
-                        printf("o"); // snake tail
-                    }
-                    tailPtr = 1; // set flag to indicate a tail section was printed
-                    break; // exit the loop once a body part is found
+                        printf("O"); // Snake head
+                    else if (k != snakeLength - 1)
+                        printf("c"); // Snake body parts
+                    else
+                        printf("o"); // Snake tail
+                    tailPtr = 1; // Set flag to indicate a tail section was printed
+                    break; // Exit loop once a body part is found
                 }
                 current = current->next;
                 k++;
             }
 
-                if (!tailPtr) { // if nothing else was printed, print a blank space
-                    printf(" ");
-                }
+            // Print Apple if it's at this position
+            if (j == appleX && i == appleY) {
+                printf("@"); // Apple symbol
+                tailPtr = 1; // Ensure empty space is not printed over it
             }
-        printf("[]\n"); // right walls
+
+            if (!tailPtr) { // If nothing else was printed, print a blank space
+                printf(" ");
+            }
+        }
+        printf("[]\n"); // Right wall
     }
 
-    for (int i = 0; i < WIDTH / 2 + 2; i++) { // print the bottom border
+    for (int i = 0; i < WIDTH / 2 + 2; i++) { // Print bottom border
         printf("[]");
     }
     printf("\n");
