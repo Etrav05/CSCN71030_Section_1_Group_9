@@ -26,9 +26,12 @@ void collision(PSNAKENODE* list) {
 
     // Check if snake eats the apple
     if (headX == appleX && headY == appleY) {
+
         // Grow the snake
-        SNAKEBODY newBody = createBody(appleX, appleY); // Create new snake segment
-        addNode(list, newBody); // Add new node to snake
+        for (int i = 0; i < 2; i++) {
+            SNAKEBODY newBody = createBody(appleX, appleY); // Create new snake segment
+            addNode(list, newBody); // Add new node to snake
+        }
 
         // Place a new apple
         placeApple(*list);
