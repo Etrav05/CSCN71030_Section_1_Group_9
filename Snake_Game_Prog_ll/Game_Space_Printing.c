@@ -3,6 +3,8 @@
 
 int snakeLength = 0;
 
+char grid[GRID_HEIGHT][GRID_WIDTH];
+
 void setCursorPosition(int x, int y) {      // this is a function made by windows to set a position to redraw an output from
 	COORD coord = { (SHORT)x, (SHORT)y };  // rather than completly clear and redraw it (fixes the flickering issue)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
@@ -19,53 +21,67 @@ void hideCursor() { // another windows made function to hide the cursor while re
 	SetConsoleCursorInfo(consoleHandle, &cursorInfo); // apply the changes
 }
 
-void printGrid(PSNAKENODE head) {
-    setCursorPosition(0, 0); // Set cursor to the top-left corner
-    hideCursor();
+void initializeGrid() { // create a 2D array to represent the grid + hold its values
+    for (int y = 0; y < GRID_HEIGHT; y++) {
+        for (int x = 0; x < GRID_WIDTH; x++) {
+            if (y == 0 || y == GRID_HEIGHT - 1 || x == 0 || x == GRID_WIDTH - 1) { // create the walls and empty space
+                grid[y][x] = 'W'; // wall
 
-    for (int i = 0; i < WIDTH / 2 + 2; i++) { // Print top border
-        printf("[]");
-    }
-    printf("\n");
-
-    for (int i = 0; i < HEIGHT; i++) { // Print elements of the grid
-        printf("[]"); // Left wall
-
-        for (int j = 0; j < WIDTH; j++) {
-            int tailPtr = 0; // Flag to check if a tail section was printed
-            int k = 0;
-            PSNAKENODE current = head;
-
-            while (current != NULL) {
-                if (current->data.x == j && current->data.y == i) {
-                    if (k == 0)
-                        printf("O"); // Snake head
-                    else if (k != snakeLength - 1)
-                        printf("c"); // Snake body parts
-                    else
-                        printf("o"); // Snake tail
-                    tailPtr = 1; // Set flag to indicate a tail section was printed
-                    break; // Exit loop once a body part is found
-                }
-                current = current->next;
-                k++;
             }
-
-            // Print Apple if it's at this position
-            if (j == appleX && i == appleY) {
-                printf("@"); // Apple symbol
-                tailPtr = 1; // Ensure empty space is not printed over it
-            }
-
-            if (!tailPtr) { // If nothing else was printed, print a blank space
-                printf(" ");
+            else {
+                grid[y][x] = ' '; // empty space
             }
         }
-        printf("[]\n"); // Right wall
+    }
+}
+
+void placeSnake(PSNAKENODE head) { // put the snake nodes on the grid
+    PSNAKENODE current = head;
+
+    while (current != NULL) { // until the end of the snake
+        if (current == head) {
+            grid[current->data.y][current->data.x] = 'O'; // head
+        }
+        else {
+            grid[current->data.y][current->data.x] = 'o'; // body
+        }
+        current = current->next; // move to the next node
+    }
+}
+
+void clearSnake(PSNAKENODE head) { // as the snake moves, clear its old positions
+    PSNAKENODE current = head;
+
+    while (current != NULL) {
+        grid[current->data.y][current->data.x] = ' '; // for each position the snake was on, replace it with a blank space
+        current = current->next;
+    }
+}
+
+void placeAppleOnGrid(int appleX, int appleY) {
+    grid[appleY][appleX] = '@';
+}
+
+void printGrid(PSNAKENODE head) {
+    setCursorPosition(0, 0); // set cursor to the top-left corner
+    hideCursor();
+    
+    initializeGrid();
+
+    placeSnake(head);
+
+    placeAppleOnGrid(appleX, appleY);
+
+    for (int y = 0; y < GRID_HEIGHT; y++) { // print each element of the 2D grid
+        for (int x = 0; x < GRID_WIDTH; x++) {
+            if (grid[y][x] == 'W') // W's are stored as a flag to track walls
+                printf("#");
+
+            else
+                printf("%c", grid[y][x]);
+        }
+        printf("\n");
     }
 
-    for (int i = 0; i < WIDTH / 2 + 2; i++) { // Print bottom border
-        printf("[]");
-    }
-    printf("\n");
+    printf("X: %d, Y: %d", appleX, appleY);
 }
