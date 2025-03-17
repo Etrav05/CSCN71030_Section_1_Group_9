@@ -23,7 +23,6 @@ int key, gameOver = 0;
 // Dont change this often
 int main() {
     
-
     PSNAKENODE head = initialSize();
 
     x = height / 2; // set the head position (x, y)
@@ -33,9 +32,9 @@ int main() {
 
     while (!gameOver) {
         input();        // accept input
-        printGrid(head); // print the grid
         movementLogic(&head);
         collision(&head);
+        printGrid(head); // print the grid
         Sleep(100);
     }
 

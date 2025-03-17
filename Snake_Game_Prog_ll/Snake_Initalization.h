@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define GRID_WIDTH          20
+#define GRID_HEIGHT         10
+
 typedef struct snakeBody {
 	int x;
 	int y;

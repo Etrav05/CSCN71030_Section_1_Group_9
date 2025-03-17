@@ -11,8 +11,8 @@ void placeApple(PSNAKENODE head) {
     int validPosition;
     do {
         validPosition = 1;
-        appleX = rand() % width;
-        appleY = rand() % height;
+        appleX = (rand() % (GRID_WIDTH / 2 - 2) + 1);
+        appleY = (rand() % (GRID_HEIGHT - 2) + 1);
 
         // Ensure the apple does not spawn inside the snake
         PSNAKENODE current = head;

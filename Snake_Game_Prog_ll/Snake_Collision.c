@@ -6,7 +6,7 @@ void collision(PSNAKENODE* list) {
     PSNAKENODE current = *list;
 
     // Check for wall collision (Game Over)
-    if (current->data.x < 0 || current->data.x >= width || current->data.y < 0 || current->data.y >= height) {
+    if (current->data.x < 1 || current->data.x >= GRID_WIDTH - 1 || current->data.y < 1 || current->data.y >= GRID_HEIGHT - 1) {
         gameOver = 1;
     }
 
