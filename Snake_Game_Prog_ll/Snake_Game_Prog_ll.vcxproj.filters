@@ -36,6 +36,9 @@
     <ClCompile Include="Apple_Placement.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="File_IO.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Snake_Initalization.h">
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Apple_Placement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="File_IO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
