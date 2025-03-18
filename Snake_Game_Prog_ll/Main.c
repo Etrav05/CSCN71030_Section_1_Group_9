@@ -5,6 +5,7 @@
 #include "Snake_Movement.h"
 #include "main.h"
 #include "Apple_Placement.h"
+#include "File_IO.h"
 
 
 // Evan T
@@ -14,30 +15,35 @@
 
 // could be moved to a game initialization function
 int x, y;
-
 int width = 20;
 int height = 10;
-
 int key, gameOver = 0;
+int highScore = 0;
 
 // Dont change this often
 int main() {
-    
     PSNAKENODE head = initialSize();
-
     x = height / 2; // set the head position (x, y)
     y = width / 2;
+
+    highScore = readHighScore(); // Load high score from file
 
     placeApple(head); // Place the first apple on the grid
 
     while (!gameOver) {
-        input();        // accept input
+        input(); // accept input
         movementLogic(&head);
         collision(&head);
         printGrid(head); // print the grid
+        printf(" High Score: %d\n", highScore); // Display high score
         Sleep(100);
     }
 
+    if (snakeLength > highScore) {
+        saveHighScore(snakeLength); // Save new high score
+        printf("New High Score! %d\n", snakeLength);
+    }
+
     freeSnake(head); // free the snake linked list
-	return 0;
+    return 0;
 }
