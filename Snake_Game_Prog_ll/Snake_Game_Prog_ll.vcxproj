@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,6 +132,7 @@
     <ClCompile Include="Game_Space_Printing.c" />
     <ClCompile Include="Input_Acceptance.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="menus.c" />
     <ClCompile Include="Snake_Collision.c" />
     <ClCompile Include="Snake_Initialization.c" />
     <ClCompile Include="Snake_Movement.c" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Game_Space_Printing.h" />
     <ClInclude Include="Input_Acceptance.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="menus.h" />
     <ClInclude Include="Snake_Collision.h" />
     <ClInclude Include="Snake_Initalization.h" />
     <ClInclude Include="Snake_Movement.h" />
