@@ -6,6 +6,8 @@
 
 #define MENU_ITEMS 3  
 
+void instructionsArt();
+
 void displayTitleArt();
 
 void displaySnakeArt();
