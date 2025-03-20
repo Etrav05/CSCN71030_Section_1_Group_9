@@ -179,7 +179,3 @@ void runMenu() {
     }
 }
 
-int main() {
-    runMenu(); // Start the menu system
-    return 0;
-}

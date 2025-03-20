@@ -3,6 +3,7 @@
 #include "Input_Acceptance.h"
 #include "Snake_Collision.h"
 #include "Snake_Movement.h"
+#include "menus.h"
 #include "main.h"
 #include "Apple_Placement.h"
 #include "File_IO.h"
@@ -29,6 +30,8 @@ int main() {
     highScore = readHighScore(); // Load high score from file
 
     placeApple(head); // Place the first apple on the grid
+
+    runMenu();
 
     while (!gameOver) {
         input(); // accept input
