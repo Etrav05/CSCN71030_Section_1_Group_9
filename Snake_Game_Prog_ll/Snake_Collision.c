@@ -6,7 +6,7 @@ void collision(PSNAKENODE* list) {
     PSNAKENODE current = *list;
 
     // Check for wall collision (Game Over)
-    if (current->data.x < 1 || current->data.x >= GRID_WIDTH - 1 || current->data.y < 1 || current->data.y >= GRID_HEIGHT - 1) {
+    if (current->data.x < 1 || current->data.x >= width - 1 || current->data.y < 1 || current->data.y >= height - 1) {
         gameOver = 1;
     }
 
@@ -28,7 +28,7 @@ void collision(PSNAKENODE* list) {
     if (headX == appleX && headY == appleY) {
         // Grow the snake
         for (int i = 0; i < 2; i++) {
-            SNAKEBODY newBody = createBody(current->data.x, current->data.y); // Create new snake segment
+            SNAKEBODY newBody = createBody(appleX, appleY); // Create new snake segment
             addNode(list, newBody); // Add new node to snake
         }
 

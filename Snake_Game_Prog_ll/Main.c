@@ -20,6 +20,8 @@ int width = 20;
 int height = 10;
 int key, gameOver = 0;
 int highScore = 0;
+int started = 0;
+int difficulty = 0;
 
 // Dont change this often
 int main() {
@@ -33,13 +35,15 @@ int main() {
 
     runMenu();
 
-    while (!gameOver) {
-        input(); // accept input
-        movementLogic(&head);
-        collision(&head);
-        printGrid(head); // print the grid
-        printf("High Score: %d\n", highScore); // Display high score
-        Sleep(100);
+    if (started == 1) {
+        while (!gameOver) {
+            input(); // accept input
+            movementLogic(&head);
+            collision(&head);
+            printGrid(head); // print the grid
+            printf("High Score: %d\n", highScore); // Display high score
+            Sleep(difficulty);
+        }
     }
 
     if (snakeLength > highScore) {

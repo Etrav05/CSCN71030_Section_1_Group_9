@@ -34,7 +34,7 @@ SNAKEBODY copyBody(SNAKEBODY s) {
 PSNAKENODE initialSize() { // startX and Y will be passed based on the given size of the snake area, however, length with be hard coded
 	PSNAKENODE head = NULL;
 
-	SNAKEBODY body = createBody(GRID_WIDTH / 2 - 1, GRID_HEIGHT / 2); // creates body parts down vertically (for a given length)
+	SNAKEBODY body = createBody(width / 2 - 1, height / 2); // creates body parts down vertically (for a given length)
 	addNode(&head, body);
 
 	return head;

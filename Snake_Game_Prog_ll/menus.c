@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include "Game_Space_Printing.h"
 
 #define GRN "\x1b[32m"
 #define RED "\x1b[31m"
@@ -9,6 +10,11 @@
 #define MENU_ITEMS 3  
 
 // needs runMenu to work!!! :D
+
+int width;
+int height;
+int started;
+int difficulty;
 
 void instructionsArt() {
     printf(" _____ _   _  _____ ___________ _   _ _____ _____ _____ _____ _   _  _____ \n");
@@ -87,9 +93,9 @@ int displayGameStart(int selected) {
         printf("What size grid would you like?\n\n");
 
         // Dynamically prints the menu with the selection arrow
-        printf("%s    20x10\n", selected == 0 ? ">" : " ");
-        printf("%s    40x20\n", selected == 1 ? ">" : " ");
-        printf("%s    100x50 (HARD MODE)\n", selected == 2 ? ">" : " ");
+        printf("%s    10x10\n", selected == 0 ? ">" : " ");
+        printf("%s    20x20\n", selected == 1 ? ">" : " ");
+        printf("%s    50x50 (HARD MODE)\n", selected == 2 ? ">" : " ");
 
         int ch = _getch();
 
@@ -102,24 +108,33 @@ int displayGameStart(int selected) {
                 selected++;
         }
         else if (ch == 13) {  // Enter key
-            break;
+            system("cls");
+            if (selected == 0) {
+                width = 20;
+                height = 10;
+                difficulty = 100;
+                printf("You selected 10x10 grid.\n");
+                //this is just a shell for now, proper grid implementation will be added during integration testing
+            }
+            else if (selected == 1) {
+                width = 40;
+                height = 20;
+                difficulty = 50;
+                printf("You selected 20x20 grid.\n");
+            }
+            else if (selected == 2) {
+                width = 60;
+                height = 30;
+                difficulty = 25; // speed but in the inverse basically (25ms per game loop)
+                printf("You selected 30x30 grid (HARD MODE).\n");
+            }
+            system("cls");
+            return 1;
         }
         else if (ch == 27) {  //go back
             return -1;
         }
     }
-    system("cls");
-    if (selected == 0) {
-        printf("You selected 20x10 grid.\n");
-        //this is just a shell for now, proper grid implementation will be added during integration testing
-    }
-    else if (selected == 1) {
-        printf("You selected 40x20 grid.\n");
-    }
-    else if (selected == 2) {
-        printf("You selected 100x50 grid (HARD MODE).\n");
-    }
-    return selected;
 }
 
 void howToPlayDisplay() {
@@ -156,14 +171,21 @@ void runMenu() {
     int choice = 0;
     int selected = 0;
 
+    hideCursor();
+
     displayStartMenu(selected);
     system("cls");  // Clear screen for next menu
-    while (1) {
+
+    while (started != 1) {
         choice = handleMenuSelection(displayStartMenu);
 
         if (choice == 0) {
             int gridChoice = displayGameStart(selected);
-            if (gridChoice != -1) {
+            if (gridChoice == 1) {
+                started = 1;
+                break;
+            }
+            else if (gridChoice != -1) {
                 _getch();
             }
         }
@@ -178,4 +200,3 @@ void runMenu() {
         }
     }
 }
-
