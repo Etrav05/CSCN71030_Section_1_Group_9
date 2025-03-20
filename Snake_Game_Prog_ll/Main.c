@@ -35,7 +35,7 @@ int main() {
         movementLogic(&head);
         collision(&head);
         printGrid(head); // print the grid
-        printf(" High Score: %d\n", highScore); // Display high score
+        printf("High Score: %d\n", highScore); // Display high score
         Sleep(100);
     }
 
