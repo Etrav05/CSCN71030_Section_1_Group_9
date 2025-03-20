@@ -3,6 +3,7 @@
 #include "Input_Acceptance.h"
 #include "Snake_Collision.h"
 #include "Snake_Movement.h"
+#include "menus.h"
 #include "main.h"
 #include "Apple_Placement.h"
 #include "File_IO.h"
@@ -30,12 +31,14 @@ int main() {
 
     placeApple(head); // Place the first apple on the grid
 
+    runMenu();
+
     while (!gameOver) {
         input(); // accept input
         movementLogic(&head);
         collision(&head);
         printGrid(head); // print the grid
-        printf(" High Score: %d\n", highScore); // Display high score
+        printf("High Score: %d\n", highScore); // Display high score
         Sleep(100);
     }
 
