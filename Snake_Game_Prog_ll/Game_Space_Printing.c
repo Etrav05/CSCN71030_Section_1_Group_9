@@ -2,8 +2,7 @@
 #include "main.h"
 
 int snakeLength = 0;
-
-char grid[GRID_HEIGHT][GRID_WIDTH];
+char** grid = NULL; // declare as null so we can dynamically change the size with menus
 
 void setCursorPosition(int x, int y) {      // this is a function made by windows to set a position to redraw an output from
 	COORD coord = { (SHORT)x, (SHORT)y };  // rather than completly clear and redraw it (fixes the flickering issue)
@@ -21,12 +20,23 @@ void hideCursor() { // another windows made function to hide the cursor while re
 	SetConsoleCursorInfo(consoleHandle, &cursorInfo); // apply the changes
 }
 
-void initializeGrid() { // create a 2D array to represent the grid + hold its values
-    for (int y = 0; y < GRID_HEIGHT; y++) {
-        for (int x = 0; x < GRID_WIDTH; x++) {
-            if (y == 0 || y == GRID_HEIGHT - 1 || x == 0 || x == GRID_WIDTH - 1) { // create the walls and empty space
-                grid[y][x] = 'W'; // wall
+void initializeGrid() {
+    if (grid != NULL) { // free existing grid
+        for (int y = 0; y < height; y++) {
+            free(grid[y]); // free row
+        }
+        free(grid); // free whole grid
+    }
 
+    grid = (char**)malloc(height * sizeof(char*)); // allocate memory based on the users selection
+    for (int y = 0; y < height; y++) {
+        grid[y] = (char*)malloc(width * sizeof(char));
+    }
+
+    for (int y = 0; y < height; y++) { // initalize this new grid size
+        for (int x = 0; x < width; x++) {
+            if (y == 0 || y == height - 1 || x == 0 || x == width - 1) {
+                grid[y][x] = 'W'; // wall
             }
             else {
                 grid[y][x] = ' '; // empty space
@@ -72,8 +82,8 @@ void printGrid(PSNAKENODE head) {
 
     placeAppleOnGrid(appleX, appleY);
 
-    for (int y = 0; y < GRID_HEIGHT; y++) { // print each element of the 2D grid
-        for (int x = 0; x < GRID_WIDTH; x++) {
+    for (int y = 0; y < height; y++) { // print each element of the 2D grid
+        for (int x = 0; x < width; x++) {
             if (grid[y][x] == 'W') // W's are stored as a flag to track walls
                 printf("I"); // I |
 
