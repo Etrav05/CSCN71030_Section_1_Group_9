@@ -1,13 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include "menus.h"
 #include "Game_Space_Printing.h"
-
-#define GRN "\x1b[32m"
-#define RED "\x1b[31m"
-#define RESET "\x1b[0m"
-
-#define MENU_ITEMS 3  
 
 // needs runMenu to work!!! :D
 

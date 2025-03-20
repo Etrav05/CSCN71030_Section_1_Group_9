@@ -8,7 +8,6 @@
 #include "Apple_Placement.h"
 #include "File_IO.h"
 
-
 // Evan T
 // Yash B
 // Liv G

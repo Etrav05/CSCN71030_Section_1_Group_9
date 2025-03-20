@@ -4,7 +4,11 @@
 #include <conio.h>
 #include <stdlib.h>
 
-#define MENU_ITEMS 3  
+#define GRN "\x1b[32m"
+#define RED "\x1b[31m"
+#define RESET "\x1b[0m"
+
+#define MENU_ITEMS 3 
 
 void instructionsArt();
 
