@@ -1,12 +1,25 @@
 #include "Input_Acceptance.h"
 #include "main.h"
+#include <conio.h>
 #include <ctype.h>
 
 int key, gameOver;
 
 int input() { // accept inputs and set them to a key value
-	if (_kbhit()) { // changed this to IF so it only checks once every cycle (fixing the issue of multi-input)
-		switch (tolower(getch())) {
+	char lastValidKey = '\0'; // store only the last valid input
+
+	while (_kbhit()) {
+		char ch = tolower(getch());
+
+		// only store the last valid key (ignore invalid ones to prevent a backlog)
+		if (ch == 'w' || ch == 'a' || ch == 's' || ch == 'd' || ch == 'x') {
+			lastValidKey = ch;
+		}
+
+	}
+
+	if (lastValidKey != '\0') {
+		switch (lastValidKey) {
 		case 'w':
 			if (key != 3)
 				key = 1;
