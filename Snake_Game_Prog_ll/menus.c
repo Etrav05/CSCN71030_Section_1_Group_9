@@ -1,13 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include "menus.h"
 #include "Game_Space_Printing.h"
-
-#define GRN "\x1b[32m"
-#define RED "\x1b[31m"
-#define RESET "\x1b[0m"
-
-#define MENU_ITEMS 3  
 
 // needs runMenu to work!!! :D
 
@@ -26,19 +21,19 @@ void instructionsArt() {
 }
 
 void displayTitleArt() {
-    printf(" _____ _   _   ___   _   __ _____ \n");
-    printf("/  ___| \\ | | / _ \\ | | / /|  ___|\n");
-    printf("\\ `--.|  \\| |/ /_\\ \\| |/ / | |__  \n");
-    printf(" `--. \\ . ` ||  _  ||    \\ |  __| \n");
-    printf("/\\__/ / |\\  || | | || |\\  \\| |___ \n");
-    printf("\\____/\\_| \\_/\\_| |_/|_| \\\_/\\____/ \n");
+    printf(RED" _____ _   _   ___   _   __ _____ \n"RESET);
+    printf(YLW"/  ___| \\ | | / _ \\ | | / /|  __'|--<\n"RESET);
+    printf(RED"\\ `--.|  \\| |/ /_\\ \\| |/ / | |__  \n"RESET);
+    printf(YLW" `--. \\ . ` ||  _  ||    \\ |  __| \n"RESET);
+    printf(RED"/\\__/ / |\\  || | | || |\\  \\| |___ \n"RESET);
+    printf(YLW"\\____/\\_| \\_/\\_| |_/|_| \\\_/\\____/ \n"RESET);
     printf("\n");
-    printf("   _____   ___  ___  ___ _____    \n");
-    printf("  |  __ \\ / _ \\ |  \\/  ||  ___|   \n");
-    printf("  | |  \\// /_\\ \\| .  . || |__     \n");
-    printf("  | | __ |  _  || |\\/| ||  __|    \n");
-    printf("  | |_\\ \\| | | || |  | || |___    \n");
-    printf("   \\____/\\_| |_/\\_|  |_/\\____/   \n");
+    printf(YLW"   _____   ___  ___  ___ _____    \n"RESET);
+    printf(RED"  |  __ \\ / _ \\ |  \\/  ||  ___|   \n"RESET);
+    printf(YLW"  | |  \\// /_\\ \\| .  . || |__     \n"RESET);
+    printf(RED"  | | __ |  _  || |\\/| ||  __|    \n"RESET);
+    printf(YLW"  | |_\\ \\| | | || |  | || |___    \n"RESET);
+    printf(RED"   \\____/\\_| |_/\\_|  |_/\\____/   \n"RESET);
 }
 
 void displaySnakeArt() {

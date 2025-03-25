@@ -1,4 +1,5 @@
 ﻿#include "Game_Space_Printing.h"
+#include "menus.h"
 #include "main.h"
 
 int snakeLength = 0;
@@ -86,6 +87,15 @@ void printGrid(PSNAKENODE head) {
         for (int x = 0; x < width; x++) {
             if (grid[y][x] == 'W') // W's are stored as a flag to track walls
                 printf("I"); // I |
+
+            else if (grid[y][x] == 'O')
+                printf(GRN"O"RESET);
+
+            else if (grid[y][x] == 'o')
+                printf(GRN"o"RESET);
+
+            else if (grid[y][x] == '@')
+                printf(RED"@"RESET);
 
             else
                 printf("%c", grid[y][x]);
