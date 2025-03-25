@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{E9F72D5C-E5ED-4337-80D2-416709E708EE}</ProjectGuid>
+    <ProjectGuid>{126C7BCC-FAE8-4939-A51B-4BE00ECF0739}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>UnitTests</RootNamespace>
+    <RootNamespace>UnitTest1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>
@@ -156,18 +156,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game_Space_Printing_Test.cpp" />
-    <ClCompile Include="Input_Acceptance_Test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Snake_Collision_Test.cpp" />
-    <ClCompile Include="Snake_Initialization_Test.cpp" />
-    <ClCompile Include="Snake_Movement_Test.cpp" />
-    <ClCompile Include="UnitTests.cpp" />
+    <ClCompile Include="UnitTest1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
