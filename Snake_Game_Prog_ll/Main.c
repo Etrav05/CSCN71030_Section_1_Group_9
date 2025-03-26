@@ -43,12 +43,17 @@ int main() {
             printf("High Score: %d\n", highScore); // Display high score
             Sleep(difficulty);
         }
+
+        if (snakeLength > highScore) {
+            saveHighScore(snakeLength); // Save new high score
+            printf("New High Score! %d\n", snakeLength);
+        }
+
+        gameOverScreen(); // print game over screen
+        
     }
 
-    if (snakeLength > highScore) {
-        saveHighScore(snakeLength); // Save new high score
-        printf("New High Score! %d\n", snakeLength);
-    }
+    
 
     freeSnake(head); // free the snake linked list
     return 0;
