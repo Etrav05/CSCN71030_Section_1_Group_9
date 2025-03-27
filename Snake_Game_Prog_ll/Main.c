@@ -21,6 +21,7 @@ int key, gameOver = 0;
 int highScore = 0;
 int started = 0;
 int difficulty = 0;
+int replay = 0;
 
 // Dont change this often
 int main() {
@@ -32,23 +33,26 @@ int main() {
 
     placeApple(head); // Place the first apple on the grid
 
-    runMenu();
+    while (!replay) {
+        runMenu();
 
-    if (started == 1) {
-        while (!gameOver) {
-            input(); // accept input
-            movementLogic(&head);
-            collision(&head);
-            printGrid(head); // print the grid
-            printf("Score:       %d     \nHigh Score:  %d", snakeLength * 100, highScore); // Display high score
-            Sleep(difficulty);
+        if (started == 1) {
+            while (!gameOver) {
+                input(); // accept input
+                movementLogic(&head);
+                collision(&head);
+                printGrid(head); // print the grid
+                printf("Score:       %d     \nHigh Score:  %d", snakeLength * 100, highScore); // Display high score
+                Sleep(difficulty);
+            }
+
+            if (snakeLength * 100 > highScore) {
+                saveHighScore(snakeLength * 100); // Save new high score
+                printf("New High Score! %d\n", snakeLength * 100);
+            }
+
+            gameOverScreen();
         }
-
-        if (snakeLength * 100 > highScore) {
-            saveHighScore(snakeLength * 100); // Save new high score
-            printf("New High Score! %d\n", snakeLength * 100);
-        }  
-        gameOverScreen();
     }
 
     freeSnake(head); // free the snake linked list

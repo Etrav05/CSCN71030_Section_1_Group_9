@@ -8,6 +8,7 @@ void gameInitial() { // THIS IS JUST SUPER BASIC GAME INIT STUFF!!! THIS WILL BE
 	int highScore = 0;
 	int started = 0;
 	int difficulty = 0;
+
 	/*
 	PSNAKENODE head = initialSize();
 	x = height / 2;

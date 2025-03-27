@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include "menus.h"
+#include "gameInit.h"
 #include "File_IO.h"
 #include "Game_Space_Printing.h"
 
@@ -164,6 +165,8 @@ void howToPlayDisplay() {
 }
 
 void gameOverScreen(int selected){
+    selected = 0;
+
     while(1){
         system("cls");
         gameOverArt();
@@ -184,11 +187,10 @@ void gameOverScreen(int selected){
         else if (ch == 13) {  // Enter key
             system("cls");
             if (selected == 0) {
-
+                
             }
             else if (selected == 1) {
-                started = 0;
-                runMenu();
+                gameOver = 0;
             }
             system("cls");
             return 1;
