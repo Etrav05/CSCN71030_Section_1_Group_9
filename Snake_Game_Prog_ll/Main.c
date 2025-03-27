@@ -47,13 +47,8 @@ int main() {
         if (snakeLength > highScore) {
             saveHighScore(snakeLength); // Save new high score
             printf("New High Score! %d\n", snakeLength);
-        }
-
-        
-        
+        }  
     }
-
-    
 
     freeSnake(head); // free the snake linked list
     return 0;
