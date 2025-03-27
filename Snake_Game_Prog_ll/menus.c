@@ -164,33 +164,33 @@ void howToPlayDisplay() {
 
 void gameOverScreen(int selected){
     while(1){
-    system("cls");
-    gameOverArt();
-    printf("%s    replay\n", selected == 0 ? ">" : " ");
-    printf("%s    quit to main menu\n", selected == 1 ? ">" : " ");
-
-
-    int ch = _getch();
-
-    if (ch == 224) {
-        ch = _getch();
-
-        if (ch == 72 && selected > 0) // Up Arrow
-            selected--;
-        else if (ch == 80 && selected < 2 - 1) // Down Arrow
-            selected++;
-    }
-    else if (ch == 13) {  // Enter key
         system("cls");
-        if (selected == 0) {
+        gameOverArt();
+        printf("%s    replay\n", selected == 0 ? ">" : " ");
+        printf("%s    quit to main menu\n", selected == 1 ? ">" : " ");
 
+
+        int ch = _getch();
+
+        if (ch == 224) {
+            ch = _getch();
+
+            if (ch == 72 && selected > 0) // Up Arrow
+                selected--;
+            else if (ch == 80 && selected < 2 - 1) // Down Arrow
+                selected++;
         }
-        else if (selected == 1) {
-            started = 0;
-            runMenu();
-        }
-        system("cls");
-        return 1;
+        else if (ch == 13) {  // Enter key
+            system("cls");
+            if (selected == 0) {
+
+            }
+            else if (selected == 1) {
+                started = 0;
+                runMenu();
+            }
+            system("cls");
+            return 1;
         }
     } 
 }
