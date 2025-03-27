@@ -4,3 +4,4 @@
 
 int readHighScore();
 void saveHighScore(int score);
+void printScore(int highScore);

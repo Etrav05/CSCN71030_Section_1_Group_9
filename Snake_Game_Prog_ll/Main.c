@@ -22,39 +22,38 @@ int highScore = 0;
 int started = 0;
 int difficulty = 0;
 int replay = 0;
+int play = 1;
 
-// Dont change this often
 int main() {
-    PSNAKENODE head = initialSize();
-    x = height / 2; // set the head position (x, y)
-    y = width / 2;
-
-    highScore = readHighScore(); // Load high score from file
-
-    placeApple(head); // Place the first apple on the grid
-
-    while (!replay) {
+    
+    while (play == 1) { // main menu
         runMenu();
 
-        if (started == 1) {
-            while (!gameOver) {
-                input(); // accept input
-                movementLogic(&head);
-                collision(&head);
-                printGrid(head); // print the grid
-                printf("Score:       %d     \nHigh Score:  %d", snakeLength * 100, highScore); // Display high score
-                Sleep(difficulty);
-            }
+        while (started == 1) { // initialize game
+            PSNAKENODE head = initialSize(); // create snake
+            highScore = readHighScore();    // load highscore
+            placeApple(head);              // place the first apple on the grid
+            gameOver = 0;
+            key = 0;
+            
+            while (!gameOver) { // game loop
+                input();                      // accept input
+                movementLogic(&head);        // translate input to movement
+                collision(&head);           // detect collision
+                printGrid(head);           // print the grid and its elements
+                printScore(highScore);             // print score/highscore below grid
+                Sleep(difficulty);       // wait
+            } 
 
-            if (snakeLength * 100 > highScore) {
-                saveHighScore(snakeLength * 100); // Save new high score
-                printf("New High Score! %d\n", snakeLength * 100);
-            }
+            int choice = gameOverScreen();
+            freeSnake(head); // free snake before user replays
 
-            gameOverScreen();
+            if (choice == 1) {
+                started = 0;
+            }
         }
-    }
 
-    freeSnake(head); // free the snake linked list
+        // play = 0;
+    }
     return 0;
 }

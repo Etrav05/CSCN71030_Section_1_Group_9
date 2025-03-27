@@ -5,6 +5,7 @@
 #include "gameInit.h"
 #include "File_IO.h"
 #include "Game_Space_Printing.h"
+#include "Snake_Initalization.h"
 
 // needs runMenu to work!!! :D
 
@@ -12,6 +13,7 @@ int width;
 int height;
 int started;
 int difficulty;
+int snakeLength;
 
 void gameOverArt() {
 printf(" @@@@@@@@   @@@@@@   @@@@@@@@@@   @@@@@@@@      @@@@@@   @@@  @@@  @@@@@@@@  @@@@@@@\n");
@@ -24,6 +26,7 @@ printf(":!!   !!:  !!:  !!!  !!:     !!:  !!:          !!:  !!!  :!:  !!:  !!:  
 printf(":!:   !::  :!:  !:!  :!:     :!:  :!:          :!:  !:!   ::!!:!   :!:       :!:  !:!\n");
 printf(" ::: ::::  ::   :::  :::     ::    :: ::::     ::::: ::    ::::     :: ::::  ::   :::\n");
 printf(" :: :: :    :   : :   :      :    : :: ::       : :  :      :      : :: ::    :   : :\n\n\n");
+printf("Score:  %d\n\n", snakeLength * 100);
 }
 
 void instructionsArt() {
@@ -123,19 +126,19 @@ int displayGameStart(int selected) {
                 width = 20;
                 height = 10;
                 difficulty = 100;
-                printf("You selected 10x10 grid.\n");
+                // printf("You selected 10x10 grid.\n");
             }
             else if (selected == 1) {
                 width = 40;
                 height = 20;
                 difficulty = 50;
-                printf("You selected 20x20 grid.\n");
+                // printf("You selected 20x20 grid.\n");
             }
             else if (selected == 2) {
                 width = 60;
                 height = 30;
                 difficulty = 25; // speed but in the inverse basically (25ms per game loop)
-                printf("You selected 30x30 grid (HARD MODE).\n");
+                // printf("You selected 30x30 grid (HARD MODE).\n");
             }
             system("cls");
             return 1;
@@ -186,14 +189,7 @@ void gameOverScreen(int selected){
         }
         else if (ch == 13) {  // Enter key
             system("cls");
-            if (selected == 0) {
-                
-            }
-            else if (selected == 1) {
-                gameOver = 0;
-            }
-            system("cls");
-            return 1;
+            return selected;
         }
     } 
 }

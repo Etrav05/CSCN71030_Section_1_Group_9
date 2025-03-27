@@ -27,11 +27,21 @@ void initializeGrid() {
             free(grid[y]); // free row
         }
         free(grid); // free whole grid
+        grid = NULL;
     }
 
     grid = (char**)malloc(height * sizeof(char*)); // allocate memory based on the users selection
+    if (grid == NULL) { // check memory allocation
+        printf("Error allocating memory\n");
+        exit(1);
+    }
+
     for (int y = 0; y < height; y++) {
         grid[y] = (char*)malloc(width * sizeof(char));
+        if (grid[y] == NULL) { // check allocation again
+            printf("Error allocating memory for row %d\n", y);
+            exit(1);
+        }
     }
 
     for (int y = 0; y < height; y++) { // initalize this new grid size
@@ -77,7 +87,7 @@ void printGrid(PSNAKENODE head) {
     setCursorPosition(0, 0); // set cursor to the top-left corner
     hideCursor();
     
-    initializeGrid();
+    initializeGrid(head);
 
     placeSnake(head);
 

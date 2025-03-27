@@ -37,6 +37,9 @@ PSNAKENODE initialSize() { // startX and Y will be passed based on the given siz
 	SNAKEBODY body = createBody(width / 2 - 1, height / 2); // creates body parts down vertically (for a given length)
 	addNode(&head, body);
 
+	x = height / 2;
+	y = width / 2;
+
 	return head;
 }
 
@@ -49,5 +52,5 @@ void freeSnake(PSNAKENODE head) {
 		free(temp);        // free the temp
 	}
 
-	snakeLength--;
+	snakeLength = 0;
 }
