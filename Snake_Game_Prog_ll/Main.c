@@ -48,6 +48,7 @@ int main() {
             saveHighScore(snakeLength); // Save new high score
             printf("New High Score! %d\n", snakeLength);
         }  
+        gameOverScreen();
     }
 
     freeSnake(head); // free the snake linked list
