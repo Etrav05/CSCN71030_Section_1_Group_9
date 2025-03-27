@@ -49,7 +49,7 @@ int main() {
             printf("New High Score! %d\n", snakeLength);
         }
 
-        gameOverScreen(); // print game over screen
+        
         
     }
 

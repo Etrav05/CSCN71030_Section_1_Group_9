@@ -39,6 +39,12 @@
     <ClCompile Include="File_IO.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="menus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameInit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Snake_Initalization.h">
@@ -63,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="File_IO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameInit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

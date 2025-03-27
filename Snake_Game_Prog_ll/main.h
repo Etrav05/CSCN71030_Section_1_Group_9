@@ -1,5 +1,8 @@
 #pragma once
-#include <stdio.h>
+
+#ifndef INPUT_ACCEPTANCE_H
+#define INPUT_ACCEPTANCE_H
+
 #include <stdlib.h>
 
 extern int x;
@@ -13,3 +16,7 @@ extern int height;
 extern int key, gameOver;
 
 extern int snakeLength;
+
+int input(void); // Function to accept and process inputs
+
+#endif // INPUT_ACCEPTANCE_H
