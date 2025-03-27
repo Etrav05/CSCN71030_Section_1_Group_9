@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include "menus.h"
+#include "File_IO.h"
 #include "Game_Space_Printing.h"
 
 // needs runMenu to work!!! :D
@@ -197,7 +198,7 @@ void gameOverScreen(int selected){
 
 void scoreboardDisplay() {
     system("cls");
-    printf("Highscores: \n");
+    printf("Highscore: %d\n", readHighScore());
     while (1) {
         int ch = _getch();
         if (ch == 27) {

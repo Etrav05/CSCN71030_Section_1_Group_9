@@ -40,13 +40,13 @@ int main() {
             movementLogic(&head);
             collision(&head);
             printGrid(head); // print the grid
-            printf("High Score: %d\n", highScore); // Display high score
+            printf("Score:       %d     \nHigh Score:  %d", snakeLength * 100, highScore); // Display high score
             Sleep(difficulty);
         }
 
-        if (snakeLength > highScore) {
-            saveHighScore(snakeLength); // Save new high score
-            printf("New High Score! %d\n", snakeLength);
+        if (snakeLength * 100 > highScore) {
+            saveHighScore(snakeLength * 100); // Save new high score
+            printf("New High Score! %d\n", snakeLength * 100);
         }  
         gameOverScreen();
     }
