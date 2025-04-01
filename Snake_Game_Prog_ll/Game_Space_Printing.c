@@ -22,10 +22,8 @@ void hideCursor() { // another windows made function to hide the cursor while re
 }
 
 void initializeGrid() {
+    
     if (grid != NULL) { // free existing grid
-        for (int y = 0; y < height; y++) {
-            free(grid[y]); // free row
-        }
         free(grid); // free whole grid
         grid = NULL;
     }

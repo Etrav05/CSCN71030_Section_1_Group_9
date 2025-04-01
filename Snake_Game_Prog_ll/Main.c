@@ -13,7 +13,6 @@
 // Liv G
 // Austin F
 
-// could be moved to a game initialization function
 int x, y;
 int width = 20;
 int height = 10;
