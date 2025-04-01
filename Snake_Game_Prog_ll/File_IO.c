@@ -22,5 +22,5 @@ void saveHighScore(int score) {
 }
 
 void printScore(int highScore) {
-    printf("Score:       %d     \nHigh Score:  %d", (snakeLength * 100 - 100), highScore); // Display high score
+    printf("Score:       %d     \nHigh Score:  %d\n\n", (snakeLength * 100 - 100), highScore); // Display high score
 }

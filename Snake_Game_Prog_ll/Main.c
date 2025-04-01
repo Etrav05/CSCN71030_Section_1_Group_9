@@ -2,11 +2,11 @@
 #include "Game_Space_Printing.h"
 #include "Input_Acceptance.h"
 #include "Snake_Collision.h"
+#include "Apple_Placement.h"
 #include "Snake_Movement.h"
+#include "File_IO.h"
 #include "menus.h"
 #include "main.h"
-#include "Apple_Placement.h"
-#include "File_IO.h"
 
 // Evan T
 // Yash B
@@ -22,9 +22,18 @@ int started = 0;
 int difficulty = 0;
 int replay = 0;
 int play = 1;
+char gameStart[20];
 
-int main() {
-    
+int main(int argc, char* argv[]) {
+    printf("Enter here (Start Snake): ");
+    fgets(gameStart, sizeof(gameStart), stdin); // get the whole input of the user (not just the first word)
+
+    gameStart[strcspn(gameStart, "\n")] = '\0';         // remove any endline symbols 
+    if (argc < 2 || strcmp(argv[1], gameStart) != 0) { // only start after the user has entered the command line arg
+        printf("Invalid start command\n");
+        return 1;
+    }
+
     while (play == 1) { // main menu
         runMenu();
 
@@ -40,7 +49,7 @@ int main() {
                 movementLogic(&head);        // translate input to movement
                 collision(&head);           // detect collision
                 printGrid(head);           // print the grid and its elements
-                printScore(highScore);             // print score/highscore below grid
+                printScore(highScore);    // print score/highscore below grid
                 Sleep(difficulty);       // wait
             } 
 

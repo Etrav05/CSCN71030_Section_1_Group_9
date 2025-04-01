@@ -32,3 +32,5 @@ void howToPlayDisplay();
 void scoreboardDisplay();
 
 void runMenu();
+
+int gameOverScreen();

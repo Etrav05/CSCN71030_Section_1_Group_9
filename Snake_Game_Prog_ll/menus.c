@@ -55,17 +55,17 @@ void displayTitleArt() {
 }
 
 void displaySnakeArt() {
-    printf(GRN"   _________         _________\n");
-    printf(GRN "  /         \\       /         \\   \n" RESET);
-    printf(GRN " /  /~~~~~\\  \\     /  /~~~~~\\  \\  \n" RESET);
-    printf(GRN " |  |     |  |     |  |     |  |\n" RESET);
-    printf(GRN " |  |     |  |     |  |     |  |\n" RESET);
-    printf(GRN " |  |     |  |     |  |     |  |         /\n" RESET);
-    printf(GRN " |  |     |  |     |  |     |  |       //\n" RESET);
-    printf(GRN "("RESET"o  o" GRN ")    \\  \\_____/  /     \\  \\_____/ /\n" RESET);
-    printf(GRN " \\__/      \\         /       \\        /\n" RESET);
-    printf(RED "  |         " GRN "~~~~~~~~~         ~~~~~~~~\n" RESET);
-    printf(RED "  ^\n\n" RESET);
+    printf(GRN"                  _________         _________\n");
+    printf(GRN "                 /         \\       /         \\   \n" RESET);
+    printf(GRN "                /  /~~~~~\\  \\     /  /~~~~~\\  \\  \n" RESET);
+    printf(GRN "                |  |     |  |     |  |     |  |\n" RESET);
+    printf(GRN "                |  |     |  |     |  |     |  |\n" RESET);
+    printf(GRN "                |  |     |  |     |  |     |  |         /\n" RESET);
+    printf(GRN "                |  |     |  |     |  |     |  |       //\n" RESET);
+    printf(GRN "               ("RESET"o  o" GRN ")    \\  \\_____/  /     \\  \\_____/ /\n" RESET);
+    printf(GRN "                \\__/      \\         /       \\        /\n" RESET);
+    printf(RED "                 |         " GRN "~~~~~~~~~         ~~~~~~~~\n" RESET);
+    printf(RED "                 ^\n\n" RESET);
 }
 
 void displayStartMenu(int selected) {
@@ -152,10 +152,10 @@ int displayGameStart(int selected) {
 void howToPlayDisplay() {
     system("cls");
     instructionsArt();
-    printf("Snake is very simple, try grow your snake as long as possible \n");
-    printf("without crashing into yourself, or the wall. Eat the apples,\n");
-    printf("get big, don't die. You can press ESC to go back to previous\n");
-    printf("menus. Your highscore will be saved, so try beat yourself!!!\n\n\n");
+    printf("      Snake is very simple, try grow your snake as long as possible \n");
+    printf("      without crashing into yourself, or the wall. Eat the apples,\n");
+    printf("      get big, don't die. You can press ESC to go back to previous\n");
+    printf("      menus. Your highscore will be saved, so try beat yourself!!!\n\n\n");
 
     displaySnakeArt();
 
@@ -167,8 +167,8 @@ void howToPlayDisplay() {
     }
 }
 
-void gameOverScreen(int selected){
-    selected = 0;
+int gameOverScreen(){
+    int selected = 0;
 
     while(1){
         system("cls");
