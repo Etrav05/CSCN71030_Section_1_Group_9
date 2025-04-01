@@ -26,7 +26,7 @@ printf(":!!   !!:  !!:  !!!  !!:     !!:  !!:          !!:  !!!  :!:  !!:  !!:  
 printf(":!:   !::  :!:  !:!  :!:     :!:  :!:          :!:  !:!   ::!!:!   :!:       :!:  !:!\n");
 printf(" ::: ::::  ::   :::  :::     ::    :: ::::     ::::: ::    ::::     :: ::::  ::   :::\n");
 printf(" :: :: :    :   : :   :      :    : :: ::       : :  :      :      : :: ::    :   : :\n\n\n");
-printf("Score:  %d\n\n", snakeLength * 100);
+printf("Score:  %d\n\n", snakeLength * 100 - 100);
 }
 
 void instructionsArt() {

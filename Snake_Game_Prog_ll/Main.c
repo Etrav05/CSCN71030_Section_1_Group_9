@@ -45,6 +45,9 @@ int main() {
                 Sleep(difficulty);       // wait
             } 
 
+            if (snakeLength * 100 - 100 > readHighScore())
+                saveHighScore(snakeLength * 100 - 100);
+
             int choice = gameOverScreen();
             freeSnake(head); // free snake before user replays
 
